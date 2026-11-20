@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Duelo de océanos — Sonnet 5.5 vs Gemini 4 Hydrogen</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; color: #e8f2f7; padding: 32px 20px;
+    font: 16px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    display: grid; place-items: center;
+    background: #050f16 radial-gradient(65% 55% at 50% 0%, #0d3a52 0%, #050f16 72%);
+  }
+  main { width: min(940px, 100%); }
+  h1 { font-size: clamp(26px, 5vw, 40px); margin: 0 0 6px; letter-spacing: -0.02em; }
+  .sub { color: #93aebd; margin: 0 0 28px; font-size: 15px; }
+  .cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  a.card {
+    display: block; text-decoration: none; color: inherit; padding: 20px; border-radius: 14px;
+    border: 1px solid #1d3d4e; background: linear-gradient(180deg, #0b1e29, #071520);
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  a.card:hover { transform: translateY(-3px); border-color: #4fd1e0; }
+  .tag { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #4fd1e0; }
+  .name { font-size: 22px; font-weight: 650; margin: 8px 0 4px; }
+  .meta { font-size: 14px; color: #93aebd; }
+  .verdict { margin-top: 26px; padding: 18px 20px; border-radius: 14px; border: 1px solid #1d3d4e; background: #08161f; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .12em; color: #93aebd; margin: 0 0 10px; }
+  ul { margin: 0; padding-left: 18px; } li { margin: 5px 0; font-size: 14.5px; }
+  footer { margin-top: 22px; font-size: 13px; color: #5f7684; }
+  code { background: #0f2530; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Duelo de océanos</h1>
+  <p class="sub">Mismo encargo, dos modelos, juez ciego. Escena 3D de océano con Three.js: olas con físicas, pato de goma que flota, se arrastra y reacciona al cursor, controles de viento y oleaje, cámara orbitable y móvil.</p>
+
+  <div class="cards">
+    <a class="card" href="a/">
+      <div class="tag">Reto A</div>
+      <div class="name">Claude Sonnet 5.5</div>
+      <div class="meta">41 KB · 3 patos + 2 boyas · Gerstner</div>
+    </a>
+    <a class="card" href="b/">
+      <div class="tag">Reto B</div>
+      <div class="name">Gemini 4 Hydrogen (high)</div>
+      <div class="meta">69 KB · 5 deslizadores · Gerstner + cuerpo flotante</div>
+    </a>
+  </div>
+
+  <div class="verdict">
+    <h2>Veredicto ciego</h2>
+    <p style="margin:0"><strong>Gana B (Hydrogen)</strong> · 39 / 50 frente a 34 / 50 de A (Sonnet).</p>
+    <ul>
+      <li>Hydrogen: cuerpo flotante con inercia real (velocidad, amortiguación, cabeceo y alabeo muestreando la ola en cuatro puntos) y arrastre con plano de tiro.</li>
+      <li>Sonnet: escena más rica de partida (tres patos, boyas, cielo con nubes) pero flotación más simple y patos fuera de encuadre al arrancar.</li>
+      <li>Ninguna de las dos deja el pato a la vista en la cámara inicial: hay que pulsar centrar/reiniciar.</li>
+    </ul>
+  </div>
+
+  <footer>Ambas son un único <code>index.html</code> con Three.js por import map desde CDN. Funcionan en móvil. Capturas hechas sin GPU, así que se ven más bastas de lo que son.</footer>
+</main>
+</body>
+</html>
